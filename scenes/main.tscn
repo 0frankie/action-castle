@@ -1,64 +1,66 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://8wg1yfkaggl"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
-[ext_resource type="PackedScene" path="res://scenes/locations/cottage.tscn" id="2_cottage"]
-[ext_resource type="PackedScene" path="res://scenes/locations/garden_path.tscn" id="3_garden_path"]
-[ext_resource type="PackedScene" path="res://scenes/locations/fishing_pond.tscn" id="4_fishing_pond"]
-[ext_resource type="PackedScene" path="res://scenes/locations/winding_path.tscn" id="5_winding_path"]
-[ext_resource type="PackedScene" path="res://scenes/locations/top_of_tree.tscn" id="6_top_of_tree"]
-[ext_resource type="PackedScene" path="res://scenes/locations/drawbridge.tscn" id="7_drawbridge"]
-[ext_resource type="PackedScene" path="res://scenes/locations/courtyard.tscn" id="8_courtyard"]
-[ext_resource type="PackedScene" path="res://scenes/locations/tower_stairs.tscn" id="9_tower_stairs"]
-[ext_resource type="PackedScene" path="res://scenes/locations/tower.tscn" id="10_tower"]
-[ext_resource type="PackedScene" path="res://scenes/locations/dungeon_stairs.tscn" id="11_dungeon_stairs"]
-[ext_resource type="PackedScene" path="res://scenes/locations/dungeon.tscn" id="12_dungeon"]
-[ext_resource type="PackedScene" path="res://scenes/locations/feasting_hall.tscn" id="13_feasting_hall"]
-[ext_resource type="PackedScene" path="res://scenes/locations/throne_room.tscn" id="14_throne_room"]
-[ext_resource type="PackedScene" path="res://scenes/locations/death.tscn" id="15_death"]
+[ext_resource type="Script" uid="uid://cl4geh3hbaa1a" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://ciqn3wvx02goc" path="res://scenes/locations/cottage.tscn" id="2_cottage"]
+[ext_resource type="PackedScene" uid="uid://bfsd0sxokcnkg" path="res://scenes/player.tscn" id="2_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://bvwamf8wuo0cq" path="res://scenes/locations/garden_path.tscn" id="3_garden_path"]
+[ext_resource type="PackedScene" uid="uid://ds7hdbnt4b7ml" path="res://scenes/locations/fishing_pond.tscn" id="4_fishing_pond"]
+[ext_resource type="PackedScene" uid="uid://dgijnecsmy68o" path="res://scenes/locations/winding_path.tscn" id="5_winding_path"]
+[ext_resource type="PackedScene" uid="uid://dbuu31g1drmy0" path="res://scenes/locations/top_of_tree.tscn" id="6_top_of_tree"]
+[ext_resource type="PackedScene" uid="uid://bkgkkxmwuud0h" path="res://scenes/locations/drawbridge.tscn" id="7_drawbridge"]
+[ext_resource type="PackedScene" uid="uid://bi2tyg68c8f71" path="res://scenes/locations/courtyard.tscn" id="8_courtyard"]
+[ext_resource type="PackedScene" uid="uid://ctailla31ko3l" path="res://scenes/locations/tower_stairs.tscn" id="9_tower_stairs"]
+[ext_resource type="PackedScene" uid="uid://ddvidiinymtcq" path="res://scenes/locations/tower.tscn" id="10_tower"]
+[ext_resource type="PackedScene" uid="uid://djjhgt8hxpmq8" path="res://scenes/locations/dungeon_stairs.tscn" id="11_dungeon_stairs"]
+[ext_resource type="PackedScene" uid="uid://bl4pbr3pdedjg" path="res://scenes/locations/dungeon.tscn" id="12_dungeon"]
+[ext_resource type="PackedScene" uid="uid://d3mre0qdrtdp6" path="res://scenes/locations/feasting_hall.tscn" id="13_feasting_hall"]
+[ext_resource type="PackedScene" uid="uid://ch0hlqn4xxvj5" path="res://scenes/locations/throne_room.tscn" id="14_throne_room"]
+[ext_resource type="PackedScene" uid="uid://bldvsg88uqwl5" path="res://scenes/locations/death.tscn" id="15_death"]
 [ext_resource type="PackedScene" path="res://scenes/world/entity_pool.tscn" id="16_entity_pool"]
-[ext_resource type="PackedScene" path="res://scenes/ui/game_ui.tscn" id="17_game_ui"]
+[ext_resource type="PackedScene" uid="uid://dujths0t7iv7b" path="res://scenes/ui/game_ui.tscn" id="17_game_ui"]
 
-[node name="ActionCastle" type="Node2D"]
+[node name="ActionCastle" type="Node2D" unique_id=1373387609]
 script = ExtResource("1_main")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=265967269]
 position = Vector2(640, 280)
-enabled = true
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="Node2D" parent="." unique_id=832333063]
 
-[node name="Locations" type="Node2D" parent="World"]
+[node name="Locations" type="Node2D" parent="World" unique_id=48279198]
 
-[node name="Cottage" parent="World/Locations" instance=ExtResource("2_cottage")]
+[node name="Cottage" parent="World/Locations" unique_id=534902860 instance=ExtResource("2_cottage")]
 
-[node name="GardenPath" parent="World/Locations" instance=ExtResource("3_garden_path")]
+[node name="GardenPath" parent="World/Locations" unique_id=1081970848 instance=ExtResource("3_garden_path")]
 
-[node name="FishingPond" parent="World/Locations" instance=ExtResource("4_fishing_pond")]
+[node name="FishingPond" parent="World/Locations" unique_id=126063368 instance=ExtResource("4_fishing_pond")]
 
-[node name="WindingPath" parent="World/Locations" instance=ExtResource("5_winding_path")]
+[node name="WindingPath" parent="World/Locations" unique_id=14714510 instance=ExtResource("5_winding_path")]
 
-[node name="TopOfTree" parent="World/Locations" instance=ExtResource("6_top_of_tree")]
+[node name="TopOfTree" parent="World/Locations" unique_id=1189197579 instance=ExtResource("6_top_of_tree")]
 
-[node name="Drawbridge" parent="World/Locations" instance=ExtResource("7_drawbridge")]
+[node name="Drawbridge" parent="World/Locations" unique_id=439818409 instance=ExtResource("7_drawbridge")]
 
-[node name="Courtyard" parent="World/Locations" instance=ExtResource("8_courtyard")]
+[node name="Courtyard" parent="World/Locations" unique_id=1184752646 instance=ExtResource("8_courtyard")]
 
-[node name="TowerStairs" parent="World/Locations" instance=ExtResource("9_tower_stairs")]
+[node name="TowerStairs" parent="World/Locations" unique_id=2140066891 instance=ExtResource("9_tower_stairs")]
 
-[node name="Tower" parent="World/Locations" instance=ExtResource("10_tower")]
+[node name="Tower" parent="World/Locations" unique_id=873377391 instance=ExtResource("10_tower")]
 
-[node name="DungeonStairs" parent="World/Locations" instance=ExtResource("11_dungeon_stairs")]
+[node name="DungeonStairs" parent="World/Locations" unique_id=200016334 instance=ExtResource("11_dungeon_stairs")]
 
-[node name="Dungeon" parent="World/Locations" instance=ExtResource("12_dungeon")]
+[node name="Dungeon" parent="World/Locations" unique_id=1522691043 instance=ExtResource("12_dungeon")]
 
-[node name="FeastingHall" parent="World/Locations" instance=ExtResource("13_feasting_hall")]
+[node name="FeastingHall" parent="World/Locations" unique_id=122030590 instance=ExtResource("13_feasting_hall")]
 
-[node name="ThroneRoom" parent="World/Locations" instance=ExtResource("14_throne_room")]
+[node name="ThroneRoom" parent="World/Locations" unique_id=478898348 instance=ExtResource("14_throne_room")]
 
-[node name="Death" parent="World/Locations" instance=ExtResource("15_death")]
+[node name="Death" parent="World/Locations" unique_id=797521236 instance=ExtResource("15_death")]
 
-[node name="EntityPool" parent="World" instance=ExtResource("16_entity_pool")]
+[node name="EntityPool" parent="World" unique_id=1421021754 instance=ExtResource("16_entity_pool")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Player" parent="." unique_id=268194929 instance=ExtResource("2_dp3eg")]
 
-[node name="GameUi" parent="CanvasLayer" instance=ExtResource("17_game_ui")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1862862308]
+
+[node name="GameUi" parent="CanvasLayer" unique_id=4345702 instance=ExtResource("17_game_ui")]

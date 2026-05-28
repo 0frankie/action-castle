@@ -53,6 +53,12 @@ func _apply_effects() -> void:
 	victim.set_property("is_unconscious", true)
 	if victim.id == "guard":
 		victim.set_property("is_suspicious", false)
+		victim.set_property("reaction_text", "clank!")
+		ok("The knight's armor rings as he crashes to the courtyard stones.")
+	elif victim.id == "troll":
+		victim.set_property("is_hungry", false)
+		victim.set_property("reaction_text", "bonk!")
+		ok("The troll staggers away from the bridge before collapsing.")
 	ok("%s was knocked unconscious." % victim.display_name)
 
 	var dropped_items: Array = victim.inventory.values()

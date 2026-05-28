@@ -221,9 +221,9 @@ const CHARACTER_DATA: Dictionary = {
 		"flags": {"is_hungry": true, "character_type": "troll"},
 	},
 	"guard": {
-		"name": "guard",
-		"display_name": "Guard",
-		"description": "A castle guard",
+		"name": "knight",
+		"display_name": "Knight",
+		"description": "A stern castle knight",
 		"location": "courtyard",
 		"flags": {
 			"is_conscious": true,
@@ -447,7 +447,12 @@ func get_suggested_commands() -> Array[String]:
 		commands.append("catch fish with pole")
 	if current_location.id == "drawbridge" and player.inventory.has("fish"):
 		commands.append("give fish to troll")
+	if current_location.id == "drawbridge" and player.inventory.has("branch"):
+		commands.append("attack troll with branch")
+	if current_location.id == "courtyard" and player.inventory.has("fish"):
+		commands.append("give fish to knight")
 	if current_location.id == "courtyard" and player.inventory.has("branch"):
+		commands.append("attack knight with branch")
 		commands.append("attack guard with branch")
 	if current_location.id == "tower_stairs" and player.inventory.has("key"):
 		commands.append("unlock door")

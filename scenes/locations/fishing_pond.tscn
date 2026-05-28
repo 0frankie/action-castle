@@ -14,9 +14,10 @@ scale = Vector2(2.16, 2.16)
 texture = ExtResource("2_path")
 
 [node name="Water" type="Sprite2D" parent="." unique_id=1522726433]
-position = Vector2(130, 55)
+position = Vector2(28.000008, 224.99998)
 scale = Vector2(0.62, 0.62)
 texture = ExtResource("3_pond")
+flip_h = true
 
 [node name="Items" type="Node2D" parent="." unique_id=56437513]
 
@@ -35,3 +36,6 @@ text = "Pond"
 horizontal_alignment = 1
 
 [node name="Characters" type="Node2D" parent="." unique_id=1768299816]
+
+[node name="PlayerStop" type="Marker2D" parent="." unique_id=388280146 groups=["location_player_stops"]]
+position = Vector2(-90, 135)

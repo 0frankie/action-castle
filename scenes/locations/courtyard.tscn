@@ -4,6 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://fv1wc76amo2e" path="res://sprites/bg_yamamichi.jpg" id="2_path"]
 [ext_resource type="Texture2D" uid="uid://qhqqt1suantk" path="res://sprites/castle.png" id="3_castle"]
 [ext_resource type="Texture2D" uid="uid://cafr6ixoqw4wb" path="res://sprites/isejingu_torii.png" id="4_gate"]
+[ext_resource type="Texture2D" uid="uid://dxibatd2dcn2" path="res://sprites/fantasy_ryuukishi.png" id="5_knight"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7lip2"]
+load_path = "res://.godot/imported/tatemono_kaidan.png-a2f7d2ff94ac62cbd3354ae8806feecd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y1i84"]
+load_path = "res://.godot/imported/tatemono_kaidan.png-a2f7d2ff94ac62cbd3354ae8806feecd.ctex"
 
 [node name="Courtyard" type="Node2D" unique_id=882642018]
 position = Vector2(640, 270)
@@ -14,13 +21,23 @@ location_id = "courtyard"
 scale = Vector2(2.16, 2.16)
 texture = ExtResource("2_path")
 
+[node name="TowerStairs" type="Sprite2D" parent="." unique_id=158383378]
+position = Vector2(77.000015, -161.00002)
+scale = Vector2(0.64800006, 0.64800006)
+texture = SubResource("CompressedTexture2D_7lip2")
+
+[node name="DungeonStairs" type="Sprite2D" parent="." unique_id=1932081402]
+position = Vector2(70, 285.99994)
+scale = Vector2(0.64800006, 0.64800006)
+texture = SubResource("CompressedTexture2D_y1i84")
+
 [node name="CastleWall" type="Sprite2D" parent="." unique_id=1523891421]
-position = Vector2(-40, 10)
+position = Vector2(501, 21)
 scale = Vector2(1.08, 1.08)
 texture = ExtResource("3_castle")
 
 [node name="Gate" type="Sprite2D" parent="." unique_id=2131563048]
-position = Vector2(330, 70)
+position = Vector2(-340, 54)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("4_gate")
 
@@ -31,13 +48,39 @@ texture = ExtResource("4_gate")
 [node name="Guard" type="Node2D" parent="Characters" unique_id=280218804]
 position = Vector2(-150, 25)
 
+[node name="Sprite2D" type="Sprite2D" parent="Characters/Guard"]
+position = Vector2(0, -72)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("5_knight")
+
 [node name="Label" type="Label" parent="Characters/Guard" unique_id=2096899861]
 offset_left = -70.0
-offset_top = -20.0
+offset_top = -168.0
 offset_right = 70.0
-offset_bottom = 20.0
+offset_bottom = -140.0
 theme_override_colors/font_color = Color(0.1, 0.14, 0.24, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
 theme_override_constants/outline_size = 5
-text = "Guard"
+text = "Knight"
 horizontal_alignment = 1
+
+[node name="ReactionLabel" type="Label" parent="Characters/Guard"]
+visible = false
+offset_left = -70.0
+offset_top = -139.0
+offset_right = 70.0
+offset_bottom = -111.0
+theme_override_colors/font_color = Color(0.1, 0.23, 0.12, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "clank!"
+horizontal_alignment = 1
+
+[node name="PlayerStop" type="Marker2D" parent="." unique_id=274648921 groups=["location_player_stops"]]
+position = Vector2(55, 135)
+
+[node name="ExitUp" type="Marker2D" parent="." unique_id=1588573110 groups=["location_travel_markers"]]
+position = Vector2(330, 70)
+
+[node name="ExitDown" type="Marker2D" parent="." unique_id=115884062 groups=["location_travel_markers"]]
+position = Vector2(245, 155)

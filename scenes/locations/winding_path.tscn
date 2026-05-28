@@ -20,10 +20,16 @@ scale = Vector2(0.82, 0.82)
 texture = ExtResource("3_winding")
 
 [node name="TallTree" type="Sprite2D" parent="." unique_id=1344822829]
-position = Vector2(-320, 50)
+position = Vector2(66, -134)
 scale = Vector2(0.82, 0.82)
 texture = ExtResource("4_tree_side")
 
 [node name="Items" type="Node2D" parent="." unique_id=394738274]
 
 [node name="Characters" type="Node2D" parent="." unique_id=220167403]
+
+[node name="PlayerStop" type="Marker2D" parent="." unique_id=1574886361 groups=["location_player_stops"]]
+position = Vector2(85, 130)
+
+[node name="ExitUp" type="Marker2D" parent="." unique_id=1950297711 groups=["location_travel_markers"]]
+position = Vector2(72, -262)

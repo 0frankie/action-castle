@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
 [ext_resource type="Texture2D" uid="uid://bof52tf6a8ypb" path="res://sprites/bg_heaven_tengoku.jpg" id="2_heaven"]
 [ext_resource type="Texture2D" uid="uid://btulnijn2m7ij" path="res://sprites/tokyo_tower.png" id="3_tower"]
+[ext_resource type="Texture2D" uid="uid://b3s33854qvch5" path="res://sprites/royal_princess.png" id="4_princess"]
 
 [node name="Tower" type="Node2D" unique_id=655862029]
 position = Vector2(640, 270)
@@ -25,13 +26,24 @@ texture = ExtResource("3_tower")
 [node name="Princess" type="Node2D" parent="Characters" unique_id=805164691]
 position = Vector2(-150, 25)
 
+[node name="Sprite2D" type="Sprite2D" parent="Characters/Princess"]
+position = Vector2(0, -72)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("4_princess")
+
 [node name="Label" type="Label" parent="Characters/Princess" unique_id=1535014776]
 offset_left = -85.0
-offset_top = -20.0
+offset_top = -166.0
 offset_right = 85.0
-offset_bottom = 20.0
+offset_bottom = -138.0
 theme_override_colors/font_color = Color(0.25, 0.07, 0.22, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
 theme_override_constants/outline_size = 5
 text = "Princess"
 horizontal_alignment = 1
+
+[node name="PlayerStop" type="Marker2D" parent="." groups=["location_player_stops"]]
+position = Vector2(80, 130)
+
+[node name="ExitDown" type="Marker2D" parent="." groups=["location_travel_markers"]]
+position = Vector2(80, 175)

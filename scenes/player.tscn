@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bfsd0sxokcnkg"]
+
+[ext_resource type="Texture2D" uid="uid://b8g7vvbyu4kyv" path="res://sprites/onepiece01_luffy2.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://cjwqcdv4l061j" path="res://scenes/player.gd" id="1_g2els"]
+
+[node name="Player" type="CharacterBody2D" unique_id=268194929]
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2000062982]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2025268112]

@@ -35,3 +35,12 @@ text = "Door"
 horizontal_alignment = 1
 
 [node name="Characters" type="Node2D" parent="." unique_id=836973922]
+
+[node name="PlayerStop" type="Marker2D" parent="." groups=["location_player_stops"]]
+position = Vector2(35, 135)
+
+[node name="ExitUp" type="Marker2D" parent="." groups=["location_travel_markers"]]
+position = Vector2(10, -130)
+
+[node name="ExitDown" type="Marker2D" parent="." groups=["location_travel_markers"]]
+position = Vector2(10, 175)

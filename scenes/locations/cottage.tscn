@@ -35,3 +35,9 @@ text = "Pole"
 horizontal_alignment = 1
 
 [node name="Characters" type="Node2D" parent="." unique_id=927894700]
+
+[node name="PlayerStop" type="Marker2D" parent="." unique_id=700567254 groups=["location_player_stops"]]
+position = Vector2(-80, 130)
+
+[node name="ExitOut" type="Marker2D" parent="." unique_id=1857773935 groups=["location_travel_markers"]]
+position = Vector2(-176, 121)

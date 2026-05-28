@@ -29,3 +29,6 @@ text = "Candle"
 horizontal_alignment = 1
 
 [node name="Characters" type="Node2D" parent="." unique_id=2101157425]
+
+[node name="PlayerStop" type="Marker2D" parent="." groups=["location_player_stops"]]
+position = Vector2(0, 135)

@@ -1,14 +1,15 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dujths0t7iv7b"]
 
-[node name="GameUi" type="Control"]
+[node name="GameUi" type="Control" unique_id=1964616791]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TopBar" type="HBoxContainer" parent="."]
-anchors_preset = 10
+[node name="TopBar" type="HBoxContainer" parent="." unique_id=2027686266]
+layout_mode = 0
 anchor_right = 1.0
 offset_left = 24.0
 offset_top = 16.0
@@ -17,13 +18,13 @@ offset_bottom = 56.0
 grow_horizontal = 2
 theme_override_constants/separation = 24
 
-[node name="LocationTitle" type="Label" parent="TopBar"]
+[node name="LocationTitle" type="Label" parent="TopBar" unique_id=1002233407]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 text = "Cottage"
 
-[node name="InventoryLabel" type="Label" parent="TopBar"]
+[node name="InventoryLabel" type="Label" parent="TopBar" unique_id=1863193411]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
@@ -31,8 +32,8 @@ text = "Inventory: empty"
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[node name="StoryPanel" type="PanelContainer" parent="."]
-anchors_preset = 2
+[node name="StoryPanel" type="PanelContainer" parent="." unique_id=1645480590]
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
@@ -41,23 +42,22 @@ offset_right = 790.0
 offset_bottom = -78.0
 grow_vertical = 0
 
-[node name="StoryScroll" type="ScrollContainer" parent="StoryPanel"]
+[node name="StoryScroll" type="ScrollContainer" parent="StoryPanel" unique_id=2096860374]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="StoryLog" type="RichTextLabel" parent="StoryPanel/StoryScroll"]
+[node name="StoryLog" type="RichTextLabel" parent="StoryPanel/StoryScroll" unique_id=1322575832]
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-scroll_active = false
-text = ""
 fit_content = true
+scroll_active = false
 
-[node name="CommandBar" type="HBoxContainer" parent="."]
-anchors_preset = 2
+[node name="CommandBar" type="HBoxContainer" parent="." unique_id=198845318]
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
@@ -67,17 +67,18 @@ offset_bottom = -20.0
 grow_vertical = 0
 theme_override_constants/separation = 8
 
-[node name="CommandInput" type="LineEdit" parent="CommandBar"]
+[node name="CommandInput" type="LineEdit" parent="CommandBar" unique_id=361068448]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Type a command, e.g. get pole"
+keep_editing_on_text_submit = true
 
-[node name="SubmitButton" type="Button" parent="CommandBar"]
-layout_mode = 2
+[node name="SubmitButton" type="Button" parent="CommandBar" unique_id=117872315]
 custom_minimum_size = Vector2(92, 0)
+layout_mode = 2
 text = "Submit"
 
-[node name="RestartButton" type="Button" parent="CommandBar"]
-layout_mode = 2
+[node name="RestartButton" type="Button" parent="CommandBar" unique_id=1264276404]
 custom_minimum_size = Vector2(92, 0)
+layout_mode = 2
 text = "Restart"

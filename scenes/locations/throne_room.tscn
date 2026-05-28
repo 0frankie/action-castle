@@ -29,3 +29,6 @@ text = "Throne"
 horizontal_alignment = 1
 
 [node name="Characters" type="Node2D" parent="." unique_id=1602931270]
+
+[node name="PlayerStop" type="Marker2D" parent="." groups=["location_player_stops"]]
+position = Vector2(25, 145)

@@ -42,6 +42,15 @@ func _apply_effects() -> void:
 	ok("You gave the %s to %s." % [item.name, recipient.display_name])
 	if recipient.property_truthy("is_hungry") and item.property_truthy("is_food"):
 		ok(game.consume_item(recipient, item))
+		if recipient.id == "troll" and item.id == "fish":
+			recipient.set_property("reaction_text", "gulp!")
+			recipient.set_property("reacted_to_fish", true)
+			ok("The troll pats his belly and stops blocking the bridge.")
+	elif recipient.id == "guard" and item.id == "fish":
+		recipient.set_property("reaction_text", "gross!")
+		recipient.set_property("reacted_to_fish", true)
+		recipient.set_property("is_suspicious", false)
+		ok("The knight recoils from the reeking fish and loosens his watch on the gate.")
 	if item.property_truthy("scent") and item.id == "rose":
 		for message in game.smell_rose(recipient):
 			ok(message)

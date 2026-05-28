@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
 [ext_resource type="Texture2D" uid="uid://fv1wc76amo2e" path="res://sprites/bg_yamamichi.jpg" id="2_path"]
 [ext_resource type="Texture2D" uid="uid://cpys8p4uteycb" path="res://sprites/building_house3.png" id="3_cottage"]
-[ext_resource type="Texture2D" uid="uid://b06rkqu4aqypx" path="res://sprites/zassou_niwa.png" id="4_grass"]
 
 [node name="GardenPath" type="Node2D" unique_id=1423055870]
 position = Vector2(640, 270)
@@ -18,11 +17,6 @@ texture = ExtResource("2_path")
 position = Vector2(-385, 80)
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("3_cottage")
-
-[node name="RoseGarden" type="Sprite2D" parent="." unique_id=10674159]
-position = Vector2(270, 80)
-scale = Vector2(0.85, 0.85)
-texture = ExtResource("4_grass")
 
 [node name="Items" type="Node2D" parent="." unique_id=2082900890]
 
@@ -41,3 +35,9 @@ text = "Rosebush"
 horizontal_alignment = 1
 
 [node name="Characters" type="Node2D" parent="." unique_id=1540115814]
+
+[node name="PlayerStop" type="Marker2D" parent="." unique_id=1268311105 groups=["location_player_stops"]]
+position = Vector2(-40, 135)
+
+[node name="ExitIn" type="Marker2D" parent="." unique_id=1498709172 groups=["location_travel_markers"]]
+position = Vector2(-385, 115)
