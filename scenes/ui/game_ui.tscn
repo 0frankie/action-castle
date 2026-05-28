@@ -41,10 +41,18 @@ offset_right = 790.0
 offset_bottom = -78.0
 grow_vertical = 0
 
-[node name="StoryLog" type="RichTextLabel" parent="StoryPanel"]
+[node name="StoryScroll" type="ScrollContainer" parent="StoryPanel"]
 layout_mode = 2
-bbcode_enabled = false
-scroll_following = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="StoryLog" type="RichTextLabel" parent="StoryPanel/StoryScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+scroll_active = false
 text = ""
 fit_content = true
 
@@ -73,35 +81,3 @@ text = "Submit"
 layout_mode = 2
 custom_minimum_size = Vector2(92, 0)
 text = "Restart"
-
-[node name="ActionsPanel" type="VBoxContainer" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -460.0
-offset_top = -258.0
-offset_right = -24.0
-offset_bottom = -20.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/separation = 8
-
-[node name="ExitTitle" type="Label" parent="ActionsPanel"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "Exits"
-
-[node name="ExitButtons" type="GridContainer" parent="ActionsPanel"]
-layout_mode = 2
-columns = 2
-
-[node name="ActionTitle" type="Label" parent="ActionsPanel"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "Actions"
-
-[node name="ActionButtons" type="GridContainer" parent="ActionsPanel"]
-layout_mode = 2
-columns = 3

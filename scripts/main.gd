@@ -39,25 +39,24 @@ const CHARACTER_SLOT_POSITIONS: Array[Vector2] = [
 	Vector2(360.0, 45.0),
 ]
 
-const MAX_HISTORY_BLOCKS: int = 10
+const MAX_HISTORY_TURNS: int = 10
 const ACTION_CASTLE_GAME_SCRIPT: GDScript = preload("res://scripts/action_castle_game.gd")
 
 var _game: Variant
 var _location_nodes: Dictionary = {}
 var _item_nodes: Dictionary = {}
 var _character_nodes: Dictionary = {}
-var _history: Array[String] = []
+var _turns: Array[Array] = []
 
 @onready var _locations_root: Node2D = $World/Locations
 @onready var _entity_pool: Node2D = $World/EntityPool
 @onready var _location_title: Label = $CanvasLayer/GameUi/TopBar/LocationTitle
 @onready var _inventory_label: Label = $CanvasLayer/GameUi/TopBar/InventoryLabel
-@onready var _story_log: RichTextLabel = $CanvasLayer/GameUi/StoryPanel/StoryLog
+@onready var _story_scroll: ScrollContainer = $CanvasLayer/GameUi/StoryPanel/StoryScroll
+@onready var _story_log: RichTextLabel = $CanvasLayer/GameUi/StoryPanel/StoryScroll/StoryLog
 @onready var _command_input: LineEdit = $CanvasLayer/GameUi/CommandBar/CommandInput
 @onready var _command_button: Button = $CanvasLayer/GameUi/CommandBar/SubmitButton
 @onready var _restart_button: Button = $CanvasLayer/GameUi/CommandBar/RestartButton
-@onready var _exit_buttons: GridContainer = $CanvasLayer/GameUi/ActionsPanel/ExitButtons
-@onready var _action_buttons: GridContainer = $CanvasLayer/GameUi/ActionsPanel/ActionButtons
 
 
 # Initializes the game model, entity lookup tables, and first room view.
@@ -67,7 +66,7 @@ func _ready() -> void:
 	_collect_entity_nodes(_locations_root)
 	_collect_entity_nodes(_entity_pool)
 	_wire_ui()
-	_push_history(_game.describe_current_state())
+	_start_turn(_game.describe_current_state())
 	_refresh()
 	_command_input.grab_focus()
 
@@ -92,9 +91,9 @@ func _on_submit_button_pressed() -> void:
 # Restarts the model and refreshes every editor-backed node.
 func _on_restart_pressed() -> void:
 	_game.reset()
-	_history.clear()
-	_push_history("The story begins again.")
-	_push_history(_game.describe_current_state())
+	_turns.clear()
+	_start_turn("The story begins again.")
+	_start_turn(_game.describe_current_state())
 	_refresh()
 	_command_input.grab_focus()
 
@@ -106,17 +105,12 @@ func _submit_command(command: String) -> void:
 		return
 
 	_command_input.clear()
-	_push_history("> %s" % cleaned_command)
+	_start_turn("> %s" % cleaned_command)
 	var messages: Array[String] = _game.run_command(cleaned_command)
 	for message in messages:
-		_push_history(message)
+		_append_to_current_turn(message)
 	_refresh()
 	_command_input.grab_focus()
-
-
-# Runs a command from a generated UI button.
-func _on_command_button_pressed(command: String) -> void:
-	_submit_command(command)
 
 
 # Finds all LocationNode children by their exported ids.
@@ -148,7 +142,6 @@ func _refresh() -> void:
 
 	_refresh_entities(snapshot)
 	_refresh_text()
-	_refresh_command_buttons()
 
 
 # Places visible item and character nodes under the active room containers.
@@ -224,52 +217,49 @@ func _refresh_text() -> void:
 			labels.append(_game.get_item_label(item_id))
 		_inventory_label.text = "Inventory: %s" % ", ".join(labels)
 
-	_story_log.text = "\n\n".join(_history)
+	_story_log.text = _format_history()
+	_scroll_story_to_bottom()
 
 
-# Rebuilds exit and action buttons from the current game state.
-func _refresh_command_buttons() -> void:
-	_clear_children(_exit_buttons)
-	_clear_children(_action_buttons)
-
-	for exit_data in _game.get_available_exits():
-		var command := "go %s" % exit_data["direction"]
-		var label := "%s to %s" % [
-			String(exit_data["direction"]).capitalize(),
-			exit_data["to_name"],
-		]
-		_add_command_button(_exit_buttons, label, command)
-
-	for command in _game.get_suggested_commands():
-		if command.begins_with("go "):
-			continue
-		_add_command_button(_action_buttons, command.capitalize(), command)
-
-	_restart_button.disabled = false
+# Joins all turn blocks into display text, styling user commands distinctly.
+func _format_history() -> String:
+	var blocks: PackedStringArray = []
+	for turn in _turns:
+		var styled_lines: PackedStringArray = []
+		for line in turn:
+			styled_lines.append(_style_line(line))
+		blocks.append("\n".join(styled_lines))
+	return "\n\n".join(blocks)
 
 
-# Adds a button that submits a command when pressed.
-func _add_command_button(parent: GridContainer, label: String, command: String) -> void:
-	var button := Button.new()
-	button.text = label
-	button.tooltip_text = command
-	button.focus_mode = Control.FOCUS_NONE
-	button.custom_minimum_size = Vector2(128.0, 34.0)
-	button.pressed.connect(_on_command_button_pressed.bind(command))
-	parent.add_child(button)
+# Wraps user-input command lines in bbcode so they stand out from responses.
+func _style_line(line: String) -> String:
+	if line.begins_with("> "):
+		return "[b][color=#7ec8ff]%s[/color][/b]" % line
+	return line
 
 
-# Queues existing generated buttons for removal.
-func _clear_children(parent: Node) -> void:
-	for child in parent.get_children():
-		child.queue_free()
+# Scrolls the story panel to the latest content after layout settles.
+func _scroll_story_to_bottom() -> void:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_story_scroll.scroll_vertical = int(_story_scroll.get_v_scroll_bar().max_value)
 
 
-# Adds a message to the bounded story history.
-func _push_history(message: String) -> void:
-	_history.append(message)
-	while _history.size() > MAX_HISTORY_BLOCKS:
-		_history.pop_front()
+# Starts a new turn block and trims oldest turns past the cap.
+func _start_turn(first_line: String) -> void:
+	_turns.append([first_line])
+	while _turns.size() > MAX_HISTORY_TURNS:
+		_turns.pop_front()
+
+
+# Appends a line to the latest turn, starting one if history is empty.
+func _append_to_current_turn(line: String) -> void:
+	if _turns.is_empty():
+		_start_turn(line)
+		return
+	var current_turn: Array = _turns[_turns.size() - 1]
+	current_turn.append(line)
 
 
 # Gets the Items container for a location node.
