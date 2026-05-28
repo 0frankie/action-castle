@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" path="res://sprites/tree_mark_side.png" id="14_tree_side"]
 [ext_resource type="Texture2D" path="res://sprites/tree_mark_top.png" id="15_tree_top"]
 [ext_resource type="Texture2D" path="res://sprites/zassou_niwa.png" id="16_grass"]
-[ext_resource type="Texture2D" path="res://blank-white-background.jpg" id="17_blank"]
 [ext_resource type="Texture2D" path="res://sprites/feast.png" id="18_feast"]
 
 [node name="ActionCastle" type="Node2D"]
@@ -230,8 +229,8 @@ script = ExtResource("2_location")
 location_id = "courtyard"
 
 [node name="Background" type="Sprite2D" parent="World/Locations/Courtyard"]
-texture = ExtResource("17_blank")
-scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_path")
+scale = Vector2(2.16, 2.16)
 
 [node name="CastleWall" type="Sprite2D" parent="World/Locations/Courtyard"]
 position = Vector2(-40, 10)
@@ -268,8 +267,8 @@ script = ExtResource("2_location")
 location_id = "tower_stairs"
 
 [node name="Background" type="Sprite2D" parent="World/Locations/TowerStairs"]
-texture = ExtResource("17_blank")
-scale = Vector2(2.5, 2.5)
+texture = ExtResource("7_dungeon")
+scale = Vector2(2.12, 2.12)
 
 [node name="Stairs" type="Sprite2D" parent="World/Locations/TowerStairs"]
 position = Vector2(10, 25)
