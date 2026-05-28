@@ -236,7 +236,7 @@ func _refresh_command_buttons() -> void:
 		var command := "go %s" % exit_data["direction"]
 		var label := "%s to %s" % [
 			String(exit_data["direction"]).capitalize(),
-			_game.locations[exit_data["to"]]["name"],
+			exit_data["to_name"],
 		]
 		_add_command_button(_exit_buttons, label, command)
 
