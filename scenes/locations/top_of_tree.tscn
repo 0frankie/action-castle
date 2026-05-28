@@ -1,30 +1,29 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dbuu31g1drmy0"]
 
-[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
-[ext_resource type="Texture2D" path="res://sprites/bg_heaven_tengoku.jpg" id="2_heaven"]
-[ext_resource type="Texture2D" path="res://sprites/tree_mark_top.png" id="3_tree_top"]
+[ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" uid="uid://bof52tf6a8ypb" path="res://sprites/bg_heaven_tengoku.jpg" id="2_heaven"]
+[ext_resource type="Texture2D" uid="uid://bxk166oqgyux2" path="res://sprites/tree_mark_top.png" id="3_tree_top"]
 
-[node name="TopOfTree" type="Node2D"]
-visible = false
+[node name="TopOfTree" type="Node2D" unique_id=550995800]
 position = Vector2(640, 270)
 script = ExtResource("1_location")
 location_id = "top_of_tree"
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_heaven")
+[node name="Background" type="Sprite2D" parent="." unique_id=378198056]
 scale = Vector2(2.62, 2.62)
+texture = ExtResource("2_heaven")
 
-[node name="Canopy" type="Sprite2D" parent="."]
+[node name="Canopy" type="Sprite2D" parent="." unique_id=2011435077]
 position = Vector2(0, 40)
 scale = Vector2(1.45, 1.45)
 texture = ExtResource("3_tree_top")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="." unique_id=1725685157]
 
-[node name="Branch" type="Node2D" parent="Items"]
+[node name="Branch" type="Node2D" parent="Items" unique_id=956766927]
 position = Vector2(-470, 145)
 
-[node name="Label" type="Label" parent="Items/Branch"]
+[node name="Label" type="Label" parent="Items/Branch" unique_id=1601670739]
 offset_left = -55.0
 offset_top = -16.0
 offset_right = 55.0
@@ -35,4 +34,4 @@ theme_override_constants/outline_size = 4
 text = "Branch"
 horizontal_alignment = 1
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="." unique_id=1504065062]

@@ -1,30 +1,29 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://ds7hdbnt4b7ml"]
 
-[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
-[ext_resource type="Texture2D" path="res://sprites/bg_yamamichi.jpg" id="2_path"]
-[ext_resource type="Texture2D" path="res://sprites/ike.png" id="3_pond"]
+[ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" uid="uid://fv1wc76amo2e" path="res://sprites/bg_yamamichi.jpg" id="2_path"]
+[ext_resource type="Texture2D" uid="uid://crmxgh6iqdclq" path="res://sprites/ike.png" id="3_pond"]
 
-[node name="FishingPond" type="Node2D"]
-visible = false
+[node name="FishingPond" type="Node2D" unique_id=4746143]
 position = Vector2(640, 270)
 script = ExtResource("1_location")
 location_id = "fishing_pond"
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_path")
+[node name="Background" type="Sprite2D" parent="." unique_id=2102583332]
 scale = Vector2(2.16, 2.16)
+texture = ExtResource("2_path")
 
-[node name="Water" type="Sprite2D" parent="."]
+[node name="Water" type="Sprite2D" parent="." unique_id=1522726433]
 position = Vector2(130, 55)
 scale = Vector2(0.62, 0.62)
 texture = ExtResource("3_pond")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="." unique_id=56437513]
 
-[node name="Pond" type="Node2D" parent="Items"]
+[node name="Pond" type="Node2D" parent="Items" unique_id=1142271278]
 position = Vector2(-470, 145)
 
-[node name="Label" type="Label" parent="Items/Pond"]
+[node name="Label" type="Label" parent="Items/Pond" unique_id=2034969326]
 offset_left = -55.0
 offset_top = -16.0
 offset_right = 55.0
@@ -35,4 +34,4 @@ theme_override_constants/outline_size = 4
 text = "Pond"
 horizontal_alignment = 1
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="." unique_id=1768299816]

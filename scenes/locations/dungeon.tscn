@@ -1,26 +1,25 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bl4pbr3pdedjg"]
 
-[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
-[ext_resource type="Texture2D" path="res://sprites/dungeon.jpg" id="2_dungeon"]
+[ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" uid="uid://bxa7yy7t0tha8" path="res://sprites/dungeon.jpg" id="2_dungeon"]
 
-[node name="Dungeon" type="Node2D"]
-visible = false
+[node name="Dungeon" type="Node2D" unique_id=757886920]
 position = Vector2(640, 270)
 script = ExtResource("1_location")
 location_id = "dungeon"
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_dungeon")
+[node name="Background" type="Sprite2D" parent="." unique_id=314482795]
 scale = Vector2(2.12, 2.12)
+texture = ExtResource("2_dungeon")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="." unique_id=28669128]
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="." unique_id=226629376]
 
-[node name="Ghost" type="Node2D" parent="Characters"]
+[node name="Ghost" type="Node2D" parent="Characters" unique_id=1346073574]
 position = Vector2(-150, 25)
 
-[node name="Label" type="Label" parent="Characters/Ghost"]
+[node name="Label" type="Label" parent="Characters/Ghost" unique_id=1926007198]
 offset_left = -70.0
 offset_top = -20.0
 offset_right = 70.0

@@ -1,24 +1,23 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://ch0hlqn4xxvj5"]
 
-[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
-[ext_resource type="Texture2D" path="res://sprites/throne_room.jpeg" id="2_throne_room"]
+[ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" uid="uid://dx0h066fmradq" path="res://sprites/throne_room.jpeg" id="2_throne_room"]
 
-[node name="ThroneRoom" type="Node2D"]
-visible = false
+[node name="ThroneRoom" type="Node2D" unique_id=201460691]
 position = Vector2(640, 270)
 script = ExtResource("1_location")
 location_id = "throne_room"
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_throne_room")
+[node name="Background" type="Sprite2D" parent="." unique_id=2075882464]
 scale = Vector2(2.65, 2.65)
+texture = ExtResource("2_throne_room")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="." unique_id=394492865]
 
-[node name="Throne" type="Node2D" parent="Items"]
+[node name="Throne" type="Node2D" parent="Items" unique_id=1684188274]
 position = Vector2(-470, 145)
 
-[node name="Label" type="Label" parent="Items/Throne"]
+[node name="Label" type="Label" parent="Items/Throne" unique_id=1463243819]
 offset_left = -60.0
 offset_top = -16.0
 offset_right = 60.0
@@ -29,4 +28,4 @@ theme_override_constants/outline_size = 4
 text = "Throne"
 horizontal_alignment = 1
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="." unique_id=1602931270]

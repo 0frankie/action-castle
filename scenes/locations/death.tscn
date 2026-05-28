@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bof52tf6a8ypb" path="res://sprites/bg_heaven_tengoku.jpg" id="2_heaven"]
 
 [node name="Death" type="Node2D" unique_id=1513469551]
-visible = false
 position = Vector2(640, 270)
 script = ExtResource("1_location")
 location_id = "death"

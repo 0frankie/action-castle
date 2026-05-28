@@ -1,24 +1,23 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://djjhgt8hxpmq8"]
 
-[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
-[ext_resource type="Texture2D" path="res://sprites/dungeon.jpg" id="2_dungeon"]
-[ext_resource type="Texture2D" path="res://sprites/tatemono_kaidan.png" id="3_stairs"]
+[ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" uid="uid://bxa7yy7t0tha8" path="res://sprites/dungeon.jpg" id="2_dungeon"]
+[ext_resource type="Texture2D" uid="uid://ljfy71bq7cxr" path="res://sprites/tatemono_kaidan.png" id="3_stairs"]
 
-[node name="DungeonStairs" type="Node2D"]
-visible = false
+[node name="DungeonStairs" type="Node2D" unique_id=1085870316]
 position = Vector2(640, 270)
 script = ExtResource("1_location")
 location_id = "dungeon_stairs"
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_dungeon")
+[node name="Background" type="Sprite2D" parent="." unique_id=1990532597]
 scale = Vector2(2.12, 2.12)
+texture = ExtResource("2_dungeon")
 
-[node name="Stairs" type="Sprite2D" parent="."]
+[node name="Stairs" type="Sprite2D" parent="." unique_id=1013215508]
 position = Vector2(330, 70)
 scale = Vector2(0.72, 0.72)
 texture = ExtResource("3_stairs")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="." unique_id=137488559]
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="." unique_id=1643451949]

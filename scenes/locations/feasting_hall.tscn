@@ -1,24 +1,23 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://d3mre0qdrtdp6"]
 
-[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
-[ext_resource type="Texture2D" path="res://sprites/feast.png" id="2_feast"]
+[ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" uid="uid://mf0bm5rmjupv" path="res://sprites/feast.png" id="2_feast"]
 
-[node name="FeastingHall" type="Node2D"]
-visible = false
+[node name="FeastingHall" type="Node2D" unique_id=1244637796]
 position = Vector2(640, 270)
 script = ExtResource("1_location")
 location_id = "feasting_hall"
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_feast")
+[node name="Background" type="Sprite2D" parent="." unique_id=687245716]
 scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_feast")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="." unique_id=1973623256]
 
-[node name="Candle" type="Node2D" parent="Items"]
+[node name="Candle" type="Node2D" parent="Items" unique_id=2038960295]
 position = Vector2(-470, 145)
 
-[node name="Label" type="Label" parent="Items/Candle"]
+[node name="Label" type="Label" parent="Items/Candle" unique_id=715184875]
 offset_left = -55.0
 offset_top = -16.0
 offset_right = 55.0
@@ -29,4 +28,4 @@ theme_override_constants/outline_size = 4
 text = "Candle"
 horizontal_alignment = 1
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="." unique_id=2101157425]

@@ -1,38 +1,37 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bi2tyg68c8f71"]
 
-[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
-[ext_resource type="Texture2D" path="res://sprites/bg_yamamichi.jpg" id="2_path"]
-[ext_resource type="Texture2D" path="res://sprites/castle.png" id="3_castle"]
-[ext_resource type="Texture2D" path="res://sprites/isejingu_torii.png" id="4_gate"]
+[ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" uid="uid://fv1wc76amo2e" path="res://sprites/bg_yamamichi.jpg" id="2_path"]
+[ext_resource type="Texture2D" uid="uid://qhqqt1suantk" path="res://sprites/castle.png" id="3_castle"]
+[ext_resource type="Texture2D" uid="uid://cafr6ixoqw4wb" path="res://sprites/isejingu_torii.png" id="4_gate"]
 
-[node name="Courtyard" type="Node2D"]
-visible = false
+[node name="Courtyard" type="Node2D" unique_id=882642018]
 position = Vector2(640, 270)
 script = ExtResource("1_location")
 location_id = "courtyard"
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("2_path")
+[node name="Background" type="Sprite2D" parent="." unique_id=353225918]
 scale = Vector2(2.16, 2.16)
+texture = ExtResource("2_path")
 
-[node name="CastleWall" type="Sprite2D" parent="."]
+[node name="CastleWall" type="Sprite2D" parent="." unique_id=1523891421]
 position = Vector2(-40, 10)
 scale = Vector2(1.08, 1.08)
 texture = ExtResource("3_castle")
 
-[node name="Gate" type="Sprite2D" parent="."]
+[node name="Gate" type="Sprite2D" parent="." unique_id=2131563048]
 position = Vector2(330, 70)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("4_gate")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="." unique_id=1491926958]
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="Node2D" parent="." unique_id=74885404]
 
-[node name="Guard" type="Node2D" parent="Characters"]
+[node name="Guard" type="Node2D" parent="Characters" unique_id=280218804]
 position = Vector2(-150, 25)
 
-[node name="Label" type="Label" parent="Characters/Guard"]
+[node name="Label" type="Label" parent="Characters/Guard" unique_id=2096899861]
 offset_left = -70.0
 offset_top = -20.0
 offset_right = 70.0
