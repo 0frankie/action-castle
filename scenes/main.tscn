@@ -1,0 +1,634 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scripts/location_node.gd" id="2_location"]
+[ext_resource type="Texture2D" path="res://sprites/bg_yamamichi.jpg" id="3_path"]
+[ext_resource type="Texture2D" path="res://sprites/bg_heaven_tengoku.jpg" id="4_heaven"]
+[ext_resource type="Texture2D" path="res://sprites/building_house3.png" id="5_cottage"]
+[ext_resource type="Texture2D" path="res://sprites/castle.png" id="6_castle"]
+[ext_resource type="Texture2D" path="res://sprites/dungeon.jpg" id="7_dungeon"]
+[ext_resource type="Texture2D" path="res://sprites/ike.png" id="8_pond"]
+[ext_resource type="Texture2D" path="res://sprites/isejingu_torii.png" id="9_gate"]
+[ext_resource type="Texture2D" path="res://sprites/magari_michi.png" id="10_winding"]
+[ext_resource type="Texture2D" path="res://sprites/tatemono_kaidan.png" id="11_stairs"]
+[ext_resource type="Texture2D" path="res://sprites/throne_room.jpeg" id="12_throne_room"]
+[ext_resource type="Texture2D" path="res://sprites/tokyo_tower.png" id="13_tower"]
+[ext_resource type="Texture2D" path="res://sprites/tree_mark_side.png" id="14_tree_side"]
+[ext_resource type="Texture2D" path="res://sprites/tree_mark_top.png" id="15_tree_top"]
+[ext_resource type="Texture2D" path="res://sprites/zassou_niwa.png" id="16_grass"]
+[ext_resource type="Texture2D" path="res://blank-white-background.jpg" id="17_blank"]
+[ext_resource type="Texture2D" path="res://sprites/feast.png" id="18_feast"]
+
+[node name="ActionCastle" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 280)
+enabled = true
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Locations" type="Node2D" parent="World"]
+
+[node name="Cottage" type="Node2D" parent="World/Locations"]
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "cottage"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/Cottage"]
+texture = ExtResource("3_path")
+scale = Vector2(2.16, 2.16)
+
+[node name="House" type="Sprite2D" parent="World/Locations/Cottage"]
+position = Vector2(-255, 30)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("5_cottage")
+
+[node name="Items" type="Node2D" parent="World/Locations/Cottage"]
+
+[node name="Pole" type="Node2D" parent="World/Locations/Cottage/Items"]
+position = Vector2(-470, 145)
+
+[node name="Label" type="Label" parent="World/Locations/Cottage/Items/Pole"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Pole"
+horizontal_alignment = 1
+
+[node name="Characters" type="Node2D" parent="World/Locations/Cottage"]
+
+[node name="GardenPath" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "garden_path"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/GardenPath"]
+texture = ExtResource("3_path")
+scale = Vector2(2.16, 2.16)
+
+[node name="CottageHint" type="Sprite2D" parent="World/Locations/GardenPath"]
+position = Vector2(-385, 80)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("5_cottage")
+
+[node name="RoseGarden" type="Sprite2D" parent="World/Locations/GardenPath"]
+position = Vector2(270, 80)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("16_grass")
+
+[node name="Items" type="Node2D" parent="World/Locations/GardenPath"]
+
+[node name="Rosebush" type="Node2D" parent="World/Locations/GardenPath/Items"]
+position = Vector2(-470, 145)
+
+[node name="Label" type="Label" parent="World/Locations/GardenPath/Items/Rosebush"]
+offset_left = -70.0
+offset_top = -16.0
+offset_right = 70.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Rosebush"
+horizontal_alignment = 1
+
+[node name="Characters" type="Node2D" parent="World/Locations/GardenPath"]
+
+[node name="FishingPond" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "fishing_pond"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/FishingPond"]
+texture = ExtResource("3_path")
+scale = Vector2(2.16, 2.16)
+
+[node name="Water" type="Sprite2D" parent="World/Locations/FishingPond"]
+position = Vector2(130, 55)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("8_pond")
+
+[node name="Items" type="Node2D" parent="World/Locations/FishingPond"]
+
+[node name="Pond" type="Node2D" parent="World/Locations/FishingPond/Items"]
+position = Vector2(-470, 145)
+
+[node name="Label" type="Label" parent="World/Locations/FishingPond/Items/Pond"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Pond"
+horizontal_alignment = 1
+
+[node name="Characters" type="Node2D" parent="World/Locations/FishingPond"]
+
+[node name="WindingPath" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "winding_path"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/WindingPath"]
+texture = ExtResource("3_path")
+scale = Vector2(2.16, 2.16)
+
+[node name="Path" type="Sprite2D" parent="World/Locations/WindingPath"]
+position = Vector2(40, 85)
+scale = Vector2(0.82, 0.82)
+texture = ExtResource("10_winding")
+
+[node name="TallTree" type="Sprite2D" parent="World/Locations/WindingPath"]
+position = Vector2(-320, 50)
+scale = Vector2(0.82, 0.82)
+texture = ExtResource("14_tree_side")
+
+[node name="Items" type="Node2D" parent="World/Locations/WindingPath"]
+
+[node name="Characters" type="Node2D" parent="World/Locations/WindingPath"]
+
+[node name="TopOfTree" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "top_of_tree"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/TopOfTree"]
+texture = ExtResource("4_heaven")
+scale = Vector2(2.62, 2.62)
+
+[node name="Canopy" type="Sprite2D" parent="World/Locations/TopOfTree"]
+position = Vector2(0, 40)
+scale = Vector2(1.45, 1.45)
+texture = ExtResource("15_tree_top")
+
+[node name="Items" type="Node2D" parent="World/Locations/TopOfTree"]
+
+[node name="Branch" type="Node2D" parent="World/Locations/TopOfTree/Items"]
+position = Vector2(-470, 145)
+
+[node name="Label" type="Label" parent="World/Locations/TopOfTree/Items/Branch"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Branch"
+horizontal_alignment = 1
+
+[node name="Characters" type="Node2D" parent="World/Locations/TopOfTree"]
+
+[node name="Drawbridge" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "drawbridge"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/Drawbridge"]
+texture = ExtResource("3_path")
+scale = Vector2(2.16, 2.16)
+
+[node name="Castle" type="Sprite2D" parent="World/Locations/Drawbridge"]
+position = Vector2(160, 15)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_castle")
+
+[node name="Items" type="Node2D" parent="World/Locations/Drawbridge"]
+
+[node name="Characters" type="Node2D" parent="World/Locations/Drawbridge"]
+
+[node name="Troll" type="Node2D" parent="World/Locations/Drawbridge/Characters"]
+position = Vector2(-150, 25)
+
+[node name="Label" type="Label" parent="World/Locations/Drawbridge/Characters/Troll"]
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.28, 0.07, 0.08, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 5
+text = "Troll"
+horizontal_alignment = 1
+
+[node name="Courtyard" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "courtyard"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/Courtyard"]
+texture = ExtResource("17_blank")
+scale = Vector2(2.5, 2.5)
+
+[node name="CastleWall" type="Sprite2D" parent="World/Locations/Courtyard"]
+position = Vector2(-40, 10)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("6_castle")
+
+[node name="Gate" type="Sprite2D" parent="World/Locations/Courtyard"]
+position = Vector2(330, 70)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("9_gate")
+
+[node name="Items" type="Node2D" parent="World/Locations/Courtyard"]
+
+[node name="Characters" type="Node2D" parent="World/Locations/Courtyard"]
+
+[node name="Guard" type="Node2D" parent="World/Locations/Courtyard/Characters"]
+position = Vector2(-150, 25)
+
+[node name="Label" type="Label" parent="World/Locations/Courtyard/Characters/Guard"]
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.1, 0.14, 0.24, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 5
+text = "Guard"
+horizontal_alignment = 1
+
+[node name="TowerStairs" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "tower_stairs"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/TowerStairs"]
+texture = ExtResource("17_blank")
+scale = Vector2(2.5, 2.5)
+
+[node name="Stairs" type="Sprite2D" parent="World/Locations/TowerStairs"]
+position = Vector2(10, 25)
+scale = Vector2(1.45, 1.45)
+texture = ExtResource("11_stairs")
+
+[node name="Items" type="Node2D" parent="World/Locations/TowerStairs"]
+
+[node name="Door" type="Node2D" parent="World/Locations/TowerStairs/Items"]
+position = Vector2(-470, 145)
+
+[node name="Label" type="Label" parent="World/Locations/TowerStairs/Items/Door"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Door"
+horizontal_alignment = 1
+
+[node name="Characters" type="Node2D" parent="World/Locations/TowerStairs"]
+
+[node name="Tower" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "tower"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/Tower"]
+texture = ExtResource("4_heaven")
+scale = Vector2(2.62, 2.62)
+
+[node name="TowerSprite" type="Sprite2D" parent="World/Locations/Tower"]
+position = Vector2(-20, 35)
+scale = Vector2(0.58, 0.58)
+texture = ExtResource("13_tower")
+
+[node name="Items" type="Node2D" parent="World/Locations/Tower"]
+
+[node name="Characters" type="Node2D" parent="World/Locations/Tower"]
+
+[node name="Princess" type="Node2D" parent="World/Locations/Tower/Characters"]
+position = Vector2(-150, 25)
+
+[node name="Label" type="Label" parent="World/Locations/Tower/Characters/Princess"]
+offset_left = -85.0
+offset_top = -20.0
+offset_right = 85.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.25, 0.07, 0.22, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 5
+text = "Princess"
+horizontal_alignment = 1
+
+[node name="DungeonStairs" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "dungeon_stairs"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/DungeonStairs"]
+texture = ExtResource("7_dungeon")
+scale = Vector2(2.12, 2.12)
+
+[node name="Stairs" type="Sprite2D" parent="World/Locations/DungeonStairs"]
+position = Vector2(330, 70)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("11_stairs")
+
+[node name="Items" type="Node2D" parent="World/Locations/DungeonStairs"]
+
+[node name="Characters" type="Node2D" parent="World/Locations/DungeonStairs"]
+
+[node name="Dungeon" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "dungeon"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/Dungeon"]
+texture = ExtResource("7_dungeon")
+scale = Vector2(2.12, 2.12)
+
+[node name="Items" type="Node2D" parent="World/Locations/Dungeon"]
+
+[node name="Characters" type="Node2D" parent="World/Locations/Dungeon"]
+
+[node name="Ghost" type="Node2D" parent="World/Locations/Dungeon/Characters"]
+position = Vector2(-150, 25)
+
+[node name="Label" type="Label" parent="World/Locations/Dungeon/Characters/Ghost"]
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.38, 0.38, 0.45, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 5
+text = "Ghost"
+horizontal_alignment = 1
+
+[node name="FeastingHall" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "feasting_hall"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/FeastingHall"]
+texture = ExtResource("18_feast")
+scale = Vector2(1.5, 1.5)
+
+[node name="Items" type="Node2D" parent="World/Locations/FeastingHall"]
+
+[node name="Candle" type="Node2D" parent="World/Locations/FeastingHall/Items"]
+position = Vector2(-470, 145)
+
+[node name="Label" type="Label" parent="World/Locations/FeastingHall/Items/Candle"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Candle"
+horizontal_alignment = 1
+
+[node name="Characters" type="Node2D" parent="World/Locations/FeastingHall"]
+
+[node name="ThroneRoom" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "throne_room"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/ThroneRoom"]
+texture = ExtResource("12_throne_room")
+scale = Vector2(2.65, 2.65)
+
+[node name="Items" type="Node2D" parent="World/Locations/ThroneRoom"]
+
+[node name="Throne" type="Node2D" parent="World/Locations/ThroneRoom/Items"]
+position = Vector2(-470, 145)
+
+[node name="Label" type="Label" parent="World/Locations/ThroneRoom/Items/Throne"]
+offset_left = -60.0
+offset_top = -16.0
+offset_right = 60.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Throne"
+horizontal_alignment = 1
+
+[node name="Characters" type="Node2D" parent="World/Locations/ThroneRoom"]
+
+[node name="Death" type="Node2D" parent="World/Locations"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("2_location")
+location_id = "death"
+
+[node name="Background" type="Sprite2D" parent="World/Locations/Death"]
+texture = ExtResource("4_heaven")
+scale = Vector2(2.62, 2.62)
+
+[node name="Items" type="Node2D" parent="World/Locations/Death"]
+
+[node name="Characters" type="Node2D" parent="World/Locations/Death"]
+
+[node name="EntityPool" type="Node2D" parent="World"]
+visible = false
+
+[node name="Lamp" type="Node2D" parent="World/EntityPool"]
+
+[node name="Label" type="Label" parent="World/EntityPool/Lamp"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Lamp"
+horizontal_alignment = 1
+
+[node name="Key" type="Node2D" parent="World/EntityPool"]
+
+[node name="Label" type="Label" parent="World/EntityPool/Key"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Key"
+horizontal_alignment = 1
+
+[node name="Sword" type="Node2D" parent="World/EntityPool"]
+
+[node name="Label" type="Label" parent="World/EntityPool/Sword"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Sword"
+horizontal_alignment = 1
+
+[node name="Crown" type="Node2D" parent="World/EntityPool"]
+
+[node name="Label" type="Label" parent="World/EntityPool/Crown"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Crown"
+horizontal_alignment = 1
+
+[node name="Fish" type="Node2D" parent="World/EntityPool"]
+
+[node name="Label" type="Label" parent="World/EntityPool/Fish"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Fish"
+horizontal_alignment = 1
+
+[node name="Rose" type="Node2D" parent="World/EntityPool"]
+
+[node name="Label" type="Label" parent="World/EntityPool/Rose"]
+offset_left = -55.0
+offset_top = -16.0
+offset_right = 55.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Rose"
+horizontal_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUi" type="Control" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="HBoxContainer" parent="CanvasLayer/GameUi"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_constants/separation = 24
+
+[node name="LocationTitle" type="Label" parent="CanvasLayer/GameUi/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Cottage"
+
+[node name="InventoryLabel" type="Label" parent="CanvasLayer/GameUi/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Inventory: empty"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="StoryPanel" type="PanelContainer" parent="CanvasLayer/GameUi"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -258.0
+offset_right = 790.0
+offset_bottom = -78.0
+grow_vertical = 0
+
+[node name="StoryLog" type="RichTextLabel" parent="CanvasLayer/GameUi/StoryPanel"]
+layout_mode = 2
+bbcode_enabled = false
+scroll_following = true
+text = ""
+fit_content = true
+
+[node name="CommandBar" type="HBoxContainer" parent="CanvasLayer/GameUi"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -62.0
+offset_right = 790.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="CommandInput" type="LineEdit" parent="CanvasLayer/GameUi/CommandBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Type a command, e.g. get pole"
+
+[node name="SubmitButton" type="Button" parent="CanvasLayer/GameUi/CommandBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(92, 0)
+text = "Submit"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/GameUi/CommandBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(92, 0)
+text = "Restart"
+
+[node name="ActionsPanel" type="VBoxContainer" parent="CanvasLayer/GameUi"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -460.0
+offset_top = -258.0
+offset_right = -24.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="ExitTitle" type="Label" parent="CanvasLayer/GameUi/ActionsPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Exits"
+
+[node name="ExitButtons" type="GridContainer" parent="CanvasLayer/GameUi/ActionsPanel"]
+layout_mode = 2
+columns = 2
+
+[node name="ActionTitle" type="Label" parent="CanvasLayer/GameUi/ActionsPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Actions"
+
+[node name="ActionButtons" type="GridContainer" parent="CanvasLayer/GameUi/ActionsPanel"]
+layout_mode = 2
+columns = 3

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://3t8gjb4ro2ha"]
+
+[ext_resource type="Texture2D" uid="uid://bl8b8riwx85fl" path="res://blank-white-background.jpg" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=145939902]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1764660076]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1074500263]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wtcfe")
+expand_mode = 1
