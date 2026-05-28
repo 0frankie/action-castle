@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" path="res://sprites/throne_room.jpeg" id="2_throne_room"]
+
+[node name="ThroneRoom" type="Node2D"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("1_location")
+location_id = "throne_room"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_throne_room")
+scale = Vector2(2.65, 2.65)
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Throne" type="Node2D" parent="Items"]
+position = Vector2(-470, 145)
+
+[node name="Label" type="Label" parent="Items/Throne"]
+offset_left = -60.0
+offset_top = -16.0
+offset_right = 60.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.08, 0.07, 0.04, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 4
+text = "Throne"
+horizontal_alignment = 1
+
+[node name="Characters" type="Node2D" parent="."]

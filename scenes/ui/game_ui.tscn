@@ -1,0 +1,107 @@
+[gd_scene format=3]
+
+[node name="GameUi" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_constants/separation = 24
+
+[node name="LocationTitle" type="Label" parent="TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Cottage"
+
+[node name="InventoryLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Inventory: empty"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="StoryPanel" type="PanelContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -258.0
+offset_right = 790.0
+offset_bottom = -78.0
+grow_vertical = 0
+
+[node name="StoryLog" type="RichTextLabel" parent="StoryPanel"]
+layout_mode = 2
+bbcode_enabled = false
+scroll_following = true
+text = ""
+fit_content = true
+
+[node name="CommandBar" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -62.0
+offset_right = 790.0
+offset_bottom = -20.0
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="CommandInput" type="LineEdit" parent="CommandBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Type a command, e.g. get pole"
+
+[node name="SubmitButton" type="Button" parent="CommandBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(92, 0)
+text = "Submit"
+
+[node name="RestartButton" type="Button" parent="CommandBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(92, 0)
+text = "Restart"
+
+[node name="ActionsPanel" type="VBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -460.0
+offset_top = -258.0
+offset_right = -24.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="ExitTitle" type="Label" parent="ActionsPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Exits"
+
+[node name="ExitButtons" type="GridContainer" parent="ActionsPanel"]
+layout_mode = 2
+columns = 2
+
+[node name="ActionTitle" type="Label" parent="ActionsPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Actions"
+
+[node name="ActionButtons" type="GridContainer" parent="ActionsPanel"]
+layout_mode = 2
+columns = 3

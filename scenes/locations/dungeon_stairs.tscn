@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" path="res://sprites/dungeon.jpg" id="2_dungeon"]
+[ext_resource type="Texture2D" path="res://sprites/tatemono_kaidan.png" id="3_stairs"]
+
+[node name="DungeonStairs" type="Node2D"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("1_location")
+location_id = "dungeon_stairs"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_dungeon")
+scale = Vector2(2.12, 2.12)
+
+[node name="Stairs" type="Sprite2D" parent="."]
+position = Vector2(330, 70)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("3_stairs")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]

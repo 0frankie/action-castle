@@ -1,0 +1,44 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" path="res://sprites/bg_yamamichi.jpg" id="2_path"]
+[ext_resource type="Texture2D" path="res://sprites/castle.png" id="3_castle"]
+[ext_resource type="Texture2D" path="res://sprites/isejingu_torii.png" id="4_gate"]
+
+[node name="Courtyard" type="Node2D"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("1_location")
+location_id = "courtyard"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_path")
+scale = Vector2(2.16, 2.16)
+
+[node name="CastleWall" type="Sprite2D" parent="."]
+position = Vector2(-40, 10)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("3_castle")
+
+[node name="Gate" type="Sprite2D" parent="."]
+position = Vector2(330, 70)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("4_gate")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Guard" type="Node2D" parent="Characters"]
+position = Vector2(-150, 25)
+
+[node name="Label" type="Label" parent="Characters/Guard"]
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.1, 0.14, 0.24, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 5
+text = "Guard"
+horizontal_alignment = 1

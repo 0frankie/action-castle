@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bldvsg88uqwl5"]
+
+[ext_resource type="Script" uid="uid://cj2n1odprpf36" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" uid="uid://bof52tf6a8ypb" path="res://sprites/bg_heaven_tengoku.jpg" id="2_heaven"]
+
+[node name="Death" type="Node2D" unique_id=1513469551]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("1_location")
+location_id = "death"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1975091104]
+scale = Vector2(2.62, 2.62)
+texture = ExtResource("2_heaven")
+
+[node name="Items" type="Node2D" parent="." unique_id=2120322474]
+
+[node name="Characters" type="Node2D" parent="." unique_id=569261788]

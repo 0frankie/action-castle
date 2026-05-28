@@ -1,0 +1,30 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" path="res://sprites/bg_yamamichi.jpg" id="2_path"]
+[ext_resource type="Texture2D" path="res://sprites/magari_michi.png" id="3_winding"]
+[ext_resource type="Texture2D" path="res://sprites/tree_mark_side.png" id="4_tree_side"]
+
+[node name="WindingPath" type="Node2D"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("1_location")
+location_id = "winding_path"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_path")
+scale = Vector2(2.16, 2.16)
+
+[node name="Path" type="Sprite2D" parent="."]
+position = Vector2(40, 85)
+scale = Vector2(0.82, 0.82)
+texture = ExtResource("3_winding")
+
+[node name="TallTree" type="Sprite2D" parent="."]
+position = Vector2(-320, 50)
+scale = Vector2(0.82, 0.82)
+texture = ExtResource("4_tree_side")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]

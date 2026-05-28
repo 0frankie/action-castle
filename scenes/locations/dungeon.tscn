@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/location_node.gd" id="1_location"]
+[ext_resource type="Texture2D" path="res://sprites/dungeon.jpg" id="2_dungeon"]
+
+[node name="Dungeon" type="Node2D"]
+visible = false
+position = Vector2(640, 270)
+script = ExtResource("1_location")
+location_id = "dungeon"
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_dungeon")
+scale = Vector2(2.12, 2.12)
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Ghost" type="Node2D" parent="Characters"]
+position = Vector2(-150, 25)
+
+[node name="Label" type="Label" parent="Characters/Ghost"]
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.38, 0.38, 0.45, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0.95)
+theme_override_constants/outline_size = 5
+text = "Ghost"
+horizontal_alignment = 1
